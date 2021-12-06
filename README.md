@@ -1,4 +1,4 @@
-##Rest Assured API Automation
+<h1>Rest Assured API Automation</h1>
 
 <img src="https://www.fleekitsolutions.com/wp-content/uploads/2020/02/Rest-assured.jpg"></img>
 
@@ -8,7 +8,8 @@
 
 <p>Following are the dependencies that must be added to pom.xml which are available in maven central repository</p>
 
-###Dependencies
+
+<h2>Dependencies</h2>
 
 
  * <a href="https://mvnrepository.com/artifact/io.rest-assured/rest-assured/4.4.0">rest-assured</a>
