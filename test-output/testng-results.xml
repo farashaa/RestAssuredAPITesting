@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-12-06T14:04:00 IST" name="Default suite" finished-at="2021-12-06T14:04:04 IST" duration-ms="3849">
+  <suite started-at="2021-12-06T20:18:21 IST" name="Default suite" finished-at="2021-12-06T20:18:22 IST" duration-ms="1279">
     <groups>
     </groups>
-    <test started-at="2021-12-06T14:04:00 IST" name="Default test" finished-at="2021-12-06T14:04:04 IST" duration-ms="3849">
-      <class name="com.demo.tests.FirstDemo">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.demo.tests.FirstDemo@1622f1b]" started-at="2021-12-06T14:04:00 IST" name="setUp" finished-at="2021-12-06T14:04:00 IST" duration-ms="397" status="PASS">
+    <test started-at="2021-12-06T20:18:21 IST" name="Default test" finished-at="2021-12-06T20:18:22 IST" duration-ms="1279">
+      <class name="com.demo.tests.LocalApiTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:21 IST" name="setUp" finished-at="2021-12-06T20:18:22 IST" duration-ms="390" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testCreateUser()[pri:0, instance:com.demo.tests.FirstDemo@1622f1b]" started-at="2021-12-06T14:04:00 IST" name="testCreateUser" finished-at="2021-12-06T14:04:01 IST" duration-ms="1364" status="PASS">
+        <test-method signature="getStudent()[pri:0, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:22 IST" name="getStudent" finished-at="2021-12-06T20:18:22 IST" duration-ms="604" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testCreateUser -->
-        <test-method signature="testDelete()[pri:0, instance:com.demo.tests.FirstDemo@1622f1b]" started-at="2021-12-06T14:04:01 IST" name="testDelete" finished-at="2021-12-06T14:04:02 IST" duration-ms="827" status="PASS">
+        </test-method> <!-- getStudent -->
+        <test-method signature="postStudent()[pri:1, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:22 IST" name="postStudent" finished-at="2021-12-06T20:18:22 IST" duration-ms="76" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDelete -->
-        <test-method signature="testPatch()[pri:0, instance:com.demo.tests.FirstDemo@1622f1b]" started-at="2021-12-06T14:04:02 IST" name="testPatch" finished-at="2021-12-06T14:04:03 IST" duration-ms="522" status="PASS">
+        </test-method> <!-- postStudent -->
+        <test-method signature="putStudent()[pri:2, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:22 IST" name="putStudent" finished-at="2021-12-06T20:18:22 IST" duration-ms="43" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testPatch -->
-        <test-method signature="testPut()[pri:0, instance:com.demo.tests.FirstDemo@1622f1b]" started-at="2021-12-06T14:04:03 IST" name="testPut" finished-at="2021-12-06T14:04:03 IST" duration-ms="501" status="PASS">
+        </test-method> <!-- putStudent -->
+        <test-method signature="patchstudent()[pri:3, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:22 IST" name="patchstudent" finished-at="2021-12-06T20:18:22 IST" duration-ms="45" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testPut -->
-        <test-method signature="testUsersById()[pri:0, instance:com.demo.tests.FirstDemo@1622f1b]" started-at="2021-12-06T14:04:03 IST" name="testUsersById" finished-at="2021-12-06T14:04:04 IST" duration-ms="214" status="PASS">
+        </test-method> <!-- patchstudent -->
+        <test-method signature="deleteStudent()[pri:4, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:22 IST" name="deleteStudent" finished-at="2021-12-06T20:18:22 IST" duration-ms="47" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testUsersById -->
-      </class> <!-- com.demo.tests.FirstDemo -->
+        </test-method> <!-- deleteStudent -->
+        <test-method signature="postSubject()[pri:5, instance:com.demo.tests.LocalApiTest@72a7c7e0]" started-at="2021-12-06T20:18:22 IST" name="postSubject" finished-at="2021-12-06T20:18:22 IST" duration-ms="46" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postSubject -->
+      </class> <!-- com.demo.tests.LocalApiTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
