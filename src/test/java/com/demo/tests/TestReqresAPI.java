@@ -1,25 +1,19 @@
 package com.demo.tests;
-import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.resources.Payload;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class TestReqresAPI {
-	@BeforeTest
-	public void setUp() {
-		baseURI = "https://reqres.in/api";
-	}
-	//@Test
+public class TestReqresAPI extends BaseTest{
+	//@Test(priority=6)
 	public static void testUsersById() {
 		String first_name="Janet";
 		String last_name="Weaver";
@@ -36,7 +30,7 @@ public class TestReqresAPI {
 		Assert.assertTrue(jsonPath.getString("support.url").contains("#support-heading"));
 		Assert.assertTrue(true,jsonPath.getString("support.text"));
 	}
-	@Test
+	//@Test(priority=7)
 	public void testListUsers() {
 		int page=2;
 		int per_page=6;
@@ -49,11 +43,6 @@ public class TestReqresAPI {
 
 		JsonPath jsonPath = new JsonPath(response.asString());
 		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(7, 8, 9, 10, 11, 12));
-		
-		
-		for(Object id:list) {
-			System.out.println(id);
-		}
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertEquals(jsonPath.getInt("page"), page);
 		Assert.assertEquals(jsonPath.getInt("per_page"), per_page);
@@ -65,48 +54,43 @@ public class TestReqresAPI {
 		Assert.assertEquals(jsonPath.getList("data.id"), list);
 
 	}
-	//@Test
+	//@Test(priority=8)
 	public void testCreateUser() {
-		Map<String, Object> map= new HashMap<>();
-		map.put("name","ainam");
-		map.put("job", "developer");
+	
 		String name="ainam";
 		String job="developer";
 
-		Response response=given().body(map.toString()).when().post("/users").then().extract().response();
+		Response response=given().body(Payload.createUserPayload(name, job).toString()).when().post("/users").then().extract().response();
 
 		JsonPath jsonPath = new JsonPath(response.asString());
 		Assert.assertEquals(response.statusCode(), 201);
 		Assert.assertNotNull(jsonPath.getString("id"));
 		Assert.assertNotNull(jsonPath.getString("createdAt"));
 	}
-	//@Test
+	@Test(priority=11)
 	public static void testPutUser() {
-		Map<String, Object> map= new HashMap<>();
-		map.put("name","ruth");
-		map.put("job", "leader");
-		System.out.println(map.toString());
+		String name="ruth";
+		String job="leader";
 
-		Response response=given().body(map.toString()).when().put("/users/2").then().extract().response();
+		Response response=given().body(Payload.createUserPayload(name, job).toString()).when().put("/users/2").then().extract().response();
 
 		JsonPath jsonPath = new JsonPath(response.asString());
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 	}
-	//@Test
+	//@Test(priority=9)
 	public static void testPatchUser() {
-		Map<String, Object> map= new HashMap<>();
-		map.put("name","alisha");
-		map.put("job", "tester");
+		String name="alisha";
+		String job="tester";
 
-		Response response=given().body(map.toString()).when().patch("/users/2").then().extract().response();
+		Response response=given().body(Payload.createUserPayload(name, job).toString()).when().patch("/users/2").then().extract().response();
 
 		JsonPath jsonPath = new JsonPath(response.asString());
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 
 	}
-	//@Test
+	//@Test(priority=10)
 	public static void testDelete() {
 		Response response= given().when().delete("/users/2").then().extract().response();
 
