@@ -1,0 +1,106 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "firstName": "jack",
+      "lastName": "beeston",
+      "subjectId": 1
+    },
+    {
+      "id": 2,
+      "firstName": "neo",
+      "lastName": "valdes",
+      "subjectId": 2
+    },
+    {
+      "id": 4,
+      "firstName": "charlie",
+      "lastName": "chaplin",
+      "subjectId": 1
+    },
+    {
+      "firstName": "henry",
+      "lastName": "holmes",
+      "subjectId": 2,
+      "id": 5
+    },
+    {
+      "firstName": "henry",
+      "lastName": "holmes",
+      "subjectId": 2,
+      "id": 6
+    },
+    {
+      "firstName": "henry",
+      "lastName": "holmes",
+      "subjectId": 2,
+      "id": 8
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 10
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 11
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 12
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 13
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 14
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 15
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 16
+    },
+    {
+      "firstName": "henry",
+      "lastName": "baskerville",
+      "subjectId": 2,
+      "id": 17
+    }
+  ],
+  "subject": [
+    {
+      "id": 1,
+      "name": "Automation"
+    },
+    {
+      "id": 2,
+      "name": "DevOps"
+    },
+    {
+      "name": "operations",
+      "id": 3
+    },
+    {
+      "name": "operations",
+      "id": 4
+    }
+  ]
+}

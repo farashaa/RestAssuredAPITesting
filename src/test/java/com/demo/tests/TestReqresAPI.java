@@ -91,7 +91,7 @@ public class TestReqresAPI extends BaseTest{
 
 	}
 	//@Test(priority=10)
-	public static void testDelete() {
+	public static void testDeleteUser() {
 		Response response= given().when().delete("/users/2").then().extract().response();
 
 		JsonPath jsonPath = new JsonPath(response.asString());
