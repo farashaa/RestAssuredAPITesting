@@ -1,8 +1,6 @@
 target/
-Maven Dependencies/
-TestNG/
-JRE System Library/
-.classpath/
-.project/
-.settings/
-.test-output/
+.classpath
+.project
+.settings
+.metadata
+test-output/
