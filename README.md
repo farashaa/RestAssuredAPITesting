@@ -1,4 +1,4 @@
-#### Rest Assured API Automation
+# Rest Assured API Automation
 
 <a href="https://www.npmjs.com/package/readme-md-generator">
 <img src="https://img.shields.io/badge/-Rest Assured v4.4.0 -red?logo=RestAssured&logoColor=black&"/>
