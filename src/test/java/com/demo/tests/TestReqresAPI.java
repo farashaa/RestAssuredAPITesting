@@ -7,7 +7,9 @@ import java.util.Arrays;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.resources.Payload;
+import static com.utils.ResponseToJsonpathConvertor.*;
+
+import static com.resources.Payload.*;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -21,7 +23,7 @@ public class TestReqresAPI extends BaseTest{
 
 		Response response=given().when().get("/users/2").then().extract().response();
 
-		JsonPath jsonPath = new JsonPath(response.asString());
+		JsonPath jsonPath =jsonConvertor(response);
 		Assert.assertEquals(jsonPath.getInt("data.id"), 2);
 		Assert.assertEquals(jsonPath.getString("data.email"),"janet.weaver@reqres.in");
 		Assert.assertEquals(jsonPath.getString("data.first_name"),first_name );
@@ -41,7 +43,7 @@ public class TestReqresAPI extends BaseTest{
 
 		Response response=given().queryParam("page",2).when().get("/users").then().extract().response();
 
-		JsonPath jsonPath = new JsonPath(response.asString());
+		JsonPath jsonPath = jsonConvertor(response);
 		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(7, 8, 9, 10, 11, 12));
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertEquals(jsonPath.getInt("page"), page);
@@ -60,9 +62,9 @@ public class TestReqresAPI extends BaseTest{
 		String name="ainam";
 		String job="developer";
 
-		Response response=given().body(Payload.createUserPayload(name, job).toString()).when().post("/users").then().extract().response();
+		Response response=given().body(UserPayload(name, job).toString()).when().post("/users").then().extract().response();
 
-		JsonPath jsonPath = new JsonPath(response.asString());
+		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 201);
 		Assert.assertNotNull(jsonPath.getString("id"));
 		Assert.assertNotNull(jsonPath.getString("createdAt"));
@@ -72,9 +74,9 @@ public class TestReqresAPI extends BaseTest{
 		String name="ruth";
 		String job="leader";
 
-		Response response=given().body(Payload.createUserPayload(name, job).toString()).when().put("/users/2").then().extract().response();
+		Response response=given().body(UserPayload(name, job).toString()).when().put("/users/2").then().extract().response();
 
-		JsonPath jsonPath = new JsonPath(response.asString());
+		JsonPath jsonPath =jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 	}
@@ -83,9 +85,9 @@ public class TestReqresAPI extends BaseTest{
 		String name="alisha";
 		String job="tester";
 
-		Response response=given().body(Payload.createUserPayload(name, job).toString()).when().patch("/users/2").then().extract().response();
+		Response response=given().body(UserPayload(name, job).toString()).when().patch("/users/2").then().extract().response();
 
-		JsonPath jsonPath = new JsonPath(response.asString());
+		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 
@@ -94,7 +96,7 @@ public class TestReqresAPI extends BaseTest{
 	public static void testDeleteUser() {
 		Response response= given().when().delete("/users/2").then().extract().response();
 
-		JsonPath jsonPath = new JsonPath(response.asString());
+		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 204);
 	}
 }
