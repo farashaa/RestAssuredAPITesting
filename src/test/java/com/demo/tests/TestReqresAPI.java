@@ -13,7 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class TestReqresAPI extends BaseTest{
-	//@Test(priority=6)
+	@Test(priority=6)
 	public static void testUsersById() {
 		String first_name="Janet";
 		String last_name="Weaver";
@@ -30,7 +30,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertTrue(jsonPath.getString("support.url").contains("#support-heading"));
 		Assert.assertTrue(true,jsonPath.getString("support.text"));
 	}
-	//@Test(priority=7)
+	@Test(priority=7)
 	public void testListUsers() {
 		int page=2;
 		int per_page=6;
@@ -54,7 +54,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertEquals(jsonPath.getList("data.id"), list);
 
 	}
-	//@Test(priority=8)
+	@Test(priority=8)
 	public void testCreateUser() {
 	
 		String name="ainam";
@@ -78,7 +78,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 	}
-	//@Test(priority=9)
+	@Test(priority=9)
 	public static void testPatchUser() {
 		String name="alisha";
 		String job="tester";
@@ -90,7 +90,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 
 	}
-	//@Test(priority=10)
+	@Test(priority=10)
 	public static void testDeleteUser() {
 		Response response= given().when().delete("/users/2").then().extract().response();
 
