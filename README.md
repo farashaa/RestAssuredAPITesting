@@ -2,7 +2,7 @@
 
 <p> This repository contains a test folder in which there is a FirstDemo.java class, it contains the test functionality of get user, create user, update user, delete user using get(),post(),put(),patch() and delete() requests which will generate a response.</p>
 
-<p> It has passed all the 5 tests written</p>
+<p> It has generated extent report</p>
 
 <p> This repository contains a test folder in which there is a LocalApiTest.java class. </p>
 
@@ -68,7 +68,17 @@
   
  
 ### To run Test
- 
-   <p> Open the code in eclipse or intellij  => Right click on testng.xml  => click Run As  => TestNG Suite</p>
- 
 
+  <p> Open the code in eclipse or intellij  => Right click on testng.xml  => click Run As  => TestNG Suite</p>
+
+
+### Path to report
+
+   <p> report => index.html</p>
+ 
+   
+
+
+    
+
+  

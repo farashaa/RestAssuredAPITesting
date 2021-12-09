@@ -60,14 +60,14 @@ public class LocalApiTest {
 		given().contentType(ContentType.JSON).accept(ContentType.JSON).
 		body(req.toJSONString()).
 		when().
-		patch("/student/3").
+		patch("/student/4").
 		then().
 		statusCode(200).log().all();
 	}
 	@Test(priority=4)
 	public void deleteStudent() {
 		when().
-		delete("/student/3").
+		delete("/student/5").
 		then().
 		statusCode(200).log().all();
 	}
