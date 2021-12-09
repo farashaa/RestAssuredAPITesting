@@ -4,3 +4,6 @@ target/
 .settings
 .metadata
 test-output/
+report/
+spark/
+External Files/
