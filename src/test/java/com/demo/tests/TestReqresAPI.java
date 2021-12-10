@@ -1,30 +1,26 @@
 package com.demo.tests;
+import static com.resources.Payload.UserPayload;
+import static com.utils.ResponseToJsonpathConvertor.jsonConvertor;
 import static io.restassured.RestAssured.given;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.utils.ResponseToJsonpathConvertor.*;
-
-import static com.resources.Payload.*;
-
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class TestReqresAPI extends BaseTest{
-	
-	
+
+
 	@Test(priority=6)
 	public static void testUsersById()  {
 		String first_name="Janet";
 		String last_name="Weaver";
 		String avatar="https://reqres.in/img/faces/2-image.jpg";
-        BaseTest.createTest("Test user by id", "Regression", "chrome 96");
-        
+
 		Response response=given().when().get("/users/2").then().extract().response();
 
 		JsonPath jsonPath =jsonConvertor(response);
@@ -43,9 +39,7 @@ public class TestReqresAPI extends BaseTest{
 		int total=12;
 		int total_pages=2;
 		String email= "michael.lawson@reqres.in";
-        
-		BaseTest.createTest("Test list of users", "Regression", "chrome 96");
-		
+
 		Response response=given().queryParam("page",2).when().get("/users").then().extract().response();
 
 		JsonPath jsonPath = jsonConvertor(response);
@@ -63,11 +57,10 @@ public class TestReqresAPI extends BaseTest{
 	}
 	@Test(priority=8)
 	public void testCreateUser()  {
-	
+
 		String name="ainam";
 		String job="developer";
-		BaseTest.createTest("Test create user", "Regression", "chrome 96");
-		
+
 		Response response=given().body(UserPayload(name, job).toString()).when().post("/users").then().extract().response();
 
 		JsonPath jsonPath = jsonConvertor(response);
@@ -79,8 +72,7 @@ public class TestReqresAPI extends BaseTest{
 	public static void testPutUser()  {
 		String name="ruth";
 		String job="leader";
-		BaseTest.createTest("Test put user", "smoke", "chrome 96");
-		
+
 		Response response=given().body(UserPayload(name, job).toString()).when().put("/users/2").then().extract().response();
 
 		JsonPath jsonPath =jsonConvertor(response);
@@ -91,8 +83,7 @@ public class TestReqresAPI extends BaseTest{
 	public static void testPatchUser() {
 		String name="alisha";
 		String job="tester";
-		BaseTest.createTest("Test patch user", "Regression", "chrome 94");
-		
+
 		Response response=given().body(UserPayload(name, job).toString()).when().patch("/users/2").then().extract().response();
 
 		JsonPath jsonPath = jsonConvertor(response);
@@ -102,12 +93,11 @@ public class TestReqresAPI extends BaseTest{
 	}
 	@Test(priority=10)
 	public static void testDeleteUser() {
-		BaseTest.createTest("Test delete user", "Regression", "chrome 96");
-		
+
 		Response response= given().when().delete("/users/2").then().extract().response();
 
 		Assert.assertEquals(response.statusCode(), 204);
 	}
-	
-	
+
+
 }
