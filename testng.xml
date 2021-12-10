@@ -11,7 +11,8 @@
 	</test>
 	<test name="Local API">
 		<classes>
-			<class name="com.demo.tests.TestLocalAPI" />
+			<class name="com.demo.tests.TestLocalAPIStudent" />
+			<class name="com.demo.tests.TestLoacalAPISubject" />
 		</classes>
 	</test>
 

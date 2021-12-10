@@ -68,7 +68,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertNotNull(jsonPath.getString("id"));
 		Assert.assertNotNull(jsonPath.getString("createdAt"));
 	}
-	@Test(priority=11)
+	@Test(priority=9)
 	public static void testPutUser()  {
 		String name="ruth";
 		String job="leader";
@@ -79,7 +79,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 	}
-	@Test(priority=9)
+	@Test(priority=10)
 	public static void testPatchUser() {
 		String name="alisha";
 		String job="tester";
@@ -91,7 +91,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 
 	}
-	@Test(priority=10)
+	@Test(priority=11)
 	public static void testDeleteUser() {
 
 		Response response= given().when().delete("/users/2").then().extract().response();
