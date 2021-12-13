@@ -43,7 +43,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 	public void testPostSubject() {
 
 		String name = "Operations";
-		
+
 
 		Response response =given().contentType(ContentType.JSON).accept(ContentType.JSON).body(subjectPayload(name))
 				.when()
@@ -62,7 +62,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 	public void testPutSubject() {
 
 		String name = "Networks";
-		
+
 		Response response =given().contentType(ContentType.JSON).accept(ContentType.JSON).body(subjectPayload(name))
 				.when()
 				.put("/subject/3")
@@ -79,7 +79,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 	public void testPatchSubject() {
 
 		String name = "SAP";
-	
+
 
 		Response response =given().contentType(ContentType.JSON).accept(ContentType.JSON).body(subjectPayload(name))
 				.when()
