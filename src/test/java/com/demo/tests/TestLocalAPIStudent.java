@@ -14,7 +14,7 @@ import io.restassured.response.Response;
 
 public class TestLocalAPIStudent extends BaseLocalTest{
 
-	@Test(priority=0)
+	@Test(priority=0,description = "Test get students from local api")
 	public  void testGetStudent() {
 
 		int subjectId=2;
@@ -31,7 +31,7 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 		Assert.assertEquals(jsonPath.getInt("subjectId[8]"), subjectId);
 
 	}
-	@Test(priority=1)
+	@Test(priority=1,description = "Test get student by id")
 	public  void testGetStudentById() {
 
 		int subjectId=1;
@@ -43,7 +43,7 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 		Assert.assertEquals(jsonPath.getInt("subjectId"), subjectId);
 
 	}
-	@Test(priority=2)
+	@Test(priority=2,description = "Test create student using post method")
 	public void testPostStudent() {
 		String firstName="kevin";
 		String lastName="can";
@@ -60,7 +60,7 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 		Assert.assertNotNull(jsonPath.getString("id"));
 
 	}
-	@Test(priority=3)
+	@Test(priority=3,description = "Test update student using put method")
 	public void testPutStudent() {
 
 		String firstName="henry";
@@ -78,7 +78,7 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("id"));
 	}
-	@Test(priority=4)
+	@Test(priority=4,description = "Test update student using patch method")
 	public void testPatchstudent() {
 
 		String firstName="abella";
@@ -96,7 +96,7 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("id"));
 	}
-	@Test(priority=5)
+	@Test(priority=5,description = "Test delete student")
 	public void testDeleteStudent() {
 		Response response=when().delete("/student/19").then().extract().response();
 

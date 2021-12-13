@@ -9,12 +9,12 @@
 			<class name="com.demo.tests.TestReqresAPI" />
 		</classes>
 	</test>
-	<!--  <test name="Local API">
+	<test name="Local API">
 		<classes>
 			<class name="com.demo.tests.TestLocalAPIStudent" />
 			<class name="com.demo.tests.TestLoacalAPISubject" />
 		</classes>
-	</test> -->
+	</test>
 
 
 </suite>

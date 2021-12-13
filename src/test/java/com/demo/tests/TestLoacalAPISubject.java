@@ -13,7 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class TestLoacalAPISubject extends BaseLocalTest {
-	@Test(priority=12)
+	@Test(priority=12,description = "Test get subjects from local api")
 	public  void testGetSubject() {
 
 		int id= 3;
@@ -27,7 +27,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 		Assert.assertEquals(jsonPath.getInt("id[2]"), id);
 		Assert.assertEquals(jsonPath.getString("name[2]"), name);
 	}
-	@Test(priority=13)
+	@Test(priority=13,description = "Test get subject by id")
 	public  void testGetSubjectById() {
 		int id= 1;
 		String name= "Automation";
@@ -39,7 +39,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 		Assert.assertEquals(jsonPath.getInt("id"), id);
 		Assert.assertEquals(jsonPath.getString("name"), name);
 	}
-	@Test(priority=14)
+	@Test(priority=14,description = "Test create a subject using post method")
 	public void testPostSubject() {
 
 		String name = "Operations";
@@ -58,7 +58,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 		Assert.assertEquals(jsonPath.getString("name"), name);
 
 	}
-	@Test(priority=15)
+	@Test(priority=15,description = "Test update the subject using put method")
 	public void testPutSubject() {
 
 		String name = "Networks";
@@ -75,7 +75,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 		Assert.assertNotNull(jsonPath.getInt("id"));
 		Assert.assertEquals(jsonPath.getString("name"), name);
 	}
-	@Test(priority=16)
+	@Test(priority=16,description = "Test update the subject using patch method")
 	public void testPatchSubject() {
 
 		String name = "SAP";
@@ -93,7 +93,7 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 		Assert.assertNotNull(jsonPath.getInt("id"));
 		Assert.assertEquals(jsonPath.getString("name"), name);
 	}
-	@Test(priority=17)
+	@Test(priority=17,description = "Test delete the subject")
 	public void testDeleteSubject() {
 		Response response=when().delete("/subject/9").then().extract().response();
 
