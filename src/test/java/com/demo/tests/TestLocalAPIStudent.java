@@ -21,6 +21,8 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 
 		Response response=given().when().get("/student").then().extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
 		System.out.println(jsonPath.getString("id[8]"));
@@ -36,6 +38,8 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 
 		int subjectId=1;
 		Response response=given().when().get("/student/1").then().extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
@@ -54,6 +58,8 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 				.when()
 				.post("/student")
 				.then().extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 201);
@@ -74,6 +80,8 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 				.then()
 				.extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("id"));
@@ -91,6 +99,8 @@ public class TestLocalAPIStudent extends BaseLocalTest{
 				.patch("/student/15")
 				.then()
 				.extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);

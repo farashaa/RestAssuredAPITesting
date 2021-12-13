@@ -21,6 +21,8 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 
 		Response response=given().when().get("/subject").then().extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 
 		Assert.assertEquals(response.statusCode(), 200);
@@ -32,6 +34,8 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 		int id= 1;
 		String name= "Automation";
 		Response response=given().when().get("/subject/1").then().extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath = jsonConvertor(response);
 
@@ -51,6 +55,8 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 				.then()
 				.extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 
 		Assert.assertEquals(response.statusCode(), 201);
@@ -69,6 +75,8 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 				.then()
 				.extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 
 		Assert.assertEquals(response.statusCode(), 200);
@@ -86,6 +94,8 @@ public class TestLoacalAPISubject extends BaseLocalTest {
 				.patch("/subject/4")
 				.then()
 				.extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath = jsonConvertor(response);
 
