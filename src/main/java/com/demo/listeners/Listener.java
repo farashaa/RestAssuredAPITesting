@@ -21,22 +21,24 @@ public class Listener implements ITestListener,ISuiteListener{
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		ExtentManager.createTest(result.getMethod().getMethodName(), "regression", "chrome 96");
+		ExtentManager.createTest(result.getMethod().getDescription(), "regression", "chrome 96");
+		ExtentManager.test.pass(result.getMethod().getDescription() + " is started");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		ExtentManager.test.pass(result.getMethod().getMethodName() + " is passed");
+		ExtentManager.test.pass(result.getMethod().getDescription() + " is passed");
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		ExtentManager.test.fail(result.getMethod().getMethodName() + " is failed");
+		ExtentManager.test.fail(result.getMethod().getDescription()+ " is failed");
+		ExtentManager.test.fail(result.getThrowable());
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		ExtentManager.test.skip(result.getMethod().getMethodName() + " is skipped");
+		ExtentManager.test.skip(result.getMethod().getDescription() + " is skipped");
 	}
 
 }

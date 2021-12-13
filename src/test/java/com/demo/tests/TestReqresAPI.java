@@ -15,13 +15,15 @@ import io.restassured.response.Response;
 public class TestReqresAPI extends BaseTest{
 
 
-	@Test(priority=6)
+	@Test(priority=6,description="Test get user by id")
 	public static void testUsersById()  {
 		String first_name="Janet";
 		String last_name="Weaver";
 		String avatar="https://reqres.in/img/faces/2-image.jpg";
 
 		Response response=given().when().get("/users/2").then().extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath =jsonConvertor(response);
 		Assert.assertEquals(jsonPath.getInt("data.id"), 2);
@@ -32,7 +34,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertTrue(jsonPath.getString("support.url").contains("#support-heading"));
 		Assert.assertTrue(true,jsonPath.getString("support.text"));
 	}
-	@Test(priority=7)
+	@Test(priority=7, description="Test get list of users in a apge")
 	public void testListUsers() {
 		int page=2;
 		int per_page=6;
@@ -41,6 +43,8 @@ public class TestReqresAPI extends BaseTest{
 		String email= "michael.lawson@reqres.in";
 
 		Response response=given().queryParam("page",2).when().get("/users").then().extract().response();
+
+		addResponseToReport(response.asPrettyString());
 
 		JsonPath jsonPath = jsonConvertor(response);
 		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(7, 8, 9, 10, 11, 12));
@@ -55,7 +59,7 @@ public class TestReqresAPI extends BaseTest{
 		Assert.assertEquals(jsonPath.getList("data.id"), list);
 
 	}
-	@Test(priority=8)
+	@Test(priority=8 , description="Test create a user using post method")
 	public void testCreateUser()  {
 
 		String name="ainam";
@@ -63,35 +67,41 @@ public class TestReqresAPI extends BaseTest{
 
 		Response response=given().body(UserPayload(name, job).toString()).when().post("/users").then().extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 201);
 		Assert.assertNotNull(jsonPath.getString("id"));
 		Assert.assertNotNull(jsonPath.getString("createdAt"));
 	}
-	@Test(priority=9)
+	@Test(priority=9, description= "Test update a user using put method")
 	public static void testPutUser()  {
 		String name="ruth";
 		String job="leader";
 
 		Response response=given().body(UserPayload(name, job).toString()).when().put("/users/2").then().extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath =jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 	}
-	@Test(priority=10)
+	@Test(priority=10,  description= "Test update a user using patch method")
 	public static void testPatchUser() {
 		String name="alisha";
 		String job="tester";
 
 		Response response=given().body(UserPayload(name, job).toString()).when().patch("/users/2").then().extract().response();
 
+		addResponseToReport(response.asPrettyString());
+
 		JsonPath jsonPath = jsonConvertor(response);
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertNotNull(jsonPath.getString("updatedAt"));
 
 	}
-	@Test(priority=11)
+	@Test(priority=11, description = "Test delete user")
 	public static void testDeleteUser() {
 
 		Response response= given().when().delete("/users/2").then().extract().response();
